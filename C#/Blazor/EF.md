@@ -10,6 +10,10 @@
 <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
 <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1">
 ```
+Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore
+Microsoft.AspNetCore.Identity.EntityFrameworkCore
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Tools
 
 ```json
 {
