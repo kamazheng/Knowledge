@@ -11,9 +11,13 @@
 <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1">
 ```
 Install-Package Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore
+
 Install-Package Microsoft.AspNetCore.Identity.EntityFrameworkCore
+
 Install-Package Microsoft.EntityFrameworkCore.SqlServer
+
 Install-Package Microsoft.EntityFrameworkCore.Tools
+
 
 ```json
 {
