@@ -1,0 +1,14 @@
+
+https://www.bt.cn/download/linux.html
+
+sudo -i
+yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_6.0.sh && sh install.sh
+logout
+
+
+外网面板地址: http://152.67.52.125:8888/aaef727e
+内网面板地址: http://10.0.0.206:8888/aaef727e
+username: xtjtqr5s
+password: debe9ae7
+
+
