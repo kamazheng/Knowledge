@@ -90,3 +90,4 @@ vim /etc/mysql/mysql.conf.d/mysqld.cnf
 ```
 cat /etc/mysql/debian.cnf
 ```
+

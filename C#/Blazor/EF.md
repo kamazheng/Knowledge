@@ -27,4 +27,4 @@ Install-Package Microsoft.EntityFrameworkCore.Tools
 }
 ```
 
-Scaffold-DbContext -Connection name=MyConnection -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context MyDbContext -Force
+Scaffold-**DbContext** -Connection name=MyConnection -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context MyDbContext -Force

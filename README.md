@@ -10,7 +10,7 @@
 
 <https://www.xamboy.com/2019/02/05/showing-keyboard-options-in-xamarin-forms/>
 
-https://www.programmersought.com/article/9770755159/
+<https://www.programmersought.com/article/9770755159/>
 
 <https://medium.com/swlh/how-to-create-a-custom-keyboard-with-xamarin-forms-android-4fa3b83dad1d>
 
