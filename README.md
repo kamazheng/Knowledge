@@ -16,3 +16,11 @@
 
 <https://stackoverflow.com/questions/8696489/android-simulate-key-press>
 
+## Xamarin.Forms
+
+### Stuck at "Waiting for Debugger"
+<https://stackoverflow.com/questions/27436050/debugging-with-android-studio-stuck-at-waiting-for-debugger-forever>
+
+```
+adb shell am clear-debug-app
+```
