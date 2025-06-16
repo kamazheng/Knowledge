@@ -104,6 +104,11 @@ sudo useradd -m opex && echo "opex:opex1234" | sudo chpasswd
 ```
 sudo useradd -m -p $(openssl passwd -1 'opex1234') opex
 sudo usermod -aG docker opex
+//for sudo user
+sudo usermod -aG wheel opex
+//switch to new user test
+su - opex
+whoami
 ```
 
 #### 更新 /etc/docker/daemon.json
