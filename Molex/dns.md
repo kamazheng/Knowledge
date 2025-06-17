@@ -91,8 +91,3 @@ approvalcenter.cduapi.molex.com
 
 <br/>
 
-#### Xray
-
-<br/>
-
-[](https://)

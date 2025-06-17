@@ -1,0 +1,60 @@
+ip_records:
+  - ip: 10.221.165.49
+    entries:
+      initial:
+        - elk.cdu.molex.com
+        - es.cdu.molex.com
+        - logstash.cdu.molex.com
+        - kibana.cdu.molex.com
+      "2024-12-12 (update)":
+        - zipkin.cdu.molex.com
+      2024-12-12:
+        - openobserve.cdu.molex.com
+        - openobserve-api.cdu.molex.com
+        - opentelemetry-collector.cdu.molex.com
+  - ip: 10.221.165.47
+    entries:
+      initial:
+        - jenkins.cdu.molex.com
+        - nexus.cdu.molex.com
+        - prometheus.cdu.molex.com
+        - pushgateway.prometheus.cdu.molex.com
+        - grafana.cdu.molex.com
+        - zipkin.cdu.molex.com
+        - sql.cdu.molex.com
+        - docker.cdu.molex.com
+        - kafka.cdu.molex.com
+        - auth.cdu.molex.com
+      2024-12-12:
+        - test.cduappqa.molex.com
+        - test.cduapp.molex.com
+        - nacos.cdu.molex.com
+      "2024-12-12 (update)":
+        - test.cduapi.molx.com
+        - test.cduapiqa.molx.com
+      "https://kochprod.service-now.com/compass?id=ticket&table=change_request&sys_id=d19641e093df5a10f67531e17cba1040":
+        - test.cduapi.molex.com
+        - test.cduapiqa.molex.com
+        - employee.cduapi.molex.com
+        - wechat.cduapi.molex.com
+        - sap.cduapi.molex.com
+        - dcc.cduapi.molex.com
+        - approvalcenter.cduapi.molex.com
+        - employee.cduqaapi.molex.com
+        - wechat.cduqaapi.molex.com
+        - sap.cduqaapi.molex.com
+        - dcc.cduqaapi.molex.com
+        - approvalcenter.cduqaapi.molex.com
+      "https://kochprod.service-now.com/compass?id=standard_ticket&table=universal_request&sys_id=41fcd85f47786a540b37a91fe16d43a6":
+        - wmms.cdu.molex.com
+        - pmm.cdu.molex.com
+        - wmms.cduqa.molex.com
+        - pmm.cduqa.molex.com
+        - spp.cduqa.molex.com
+      "https://kochprod.service-now.com/compass?id=standard_ticket&table=universal_request&sys_id=58a3d5f29305a2d0ac9db9847aba102a":
+        - spp.cdu.molex.com
+      "https://kochprod.service-now.com/compass?id=sc_request&is_new_order=true&table=sc_request&sys_id=fcd960fb930a6e50ac9db9847aba10f9":
+        - ois.cdu.molex.com
+        - ois.cduqa.molex.com
+        - amp.cdu.molex.com
+        - amp.cduqa.molex.com
