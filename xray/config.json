@@ -1,0 +1,50 @@
+{
+    "inbounds": [
+        {
+            "port": 8080,
+            "protocol": "http",
+            "settings": {
+                "accounts": [
+                    {
+                        "user": "opex",
+                        "pass": "Opex_2025"
+                    }
+                ],
+                "allowTransparent": false,
+                "userLevel": 0
+            }
+        },
+        {
+            "port": 1080,
+            "protocol": "Socks",
+            "settings": {
+                "auth": "noauth",
+                "udp": false,
+                "ip": "127.0.0.1",
+                "userLevel": 0
+            }
+        },
+        {
+            "port": 2080,
+            "protocol": "Socks",
+            "settings": {
+                "auth": "password",
+                "accounts": [
+                    {
+                        "user": "opex",
+                        "pass": "Opex_2025"
+                    }
+                ],
+                "udp": false,
+                "ip": "127.0.0.1",
+                "userLevel": 0
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "settings": {}
+        }
+    ]
+}

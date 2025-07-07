@@ -1,0 +1,11 @@
+xray:
+  image: ghcr.io/xtls/xray-core
+  container_name: xray
+  restart: always
+  networks:
+    - sha-server
+  ports:
+    - "3389:1080"
+    - "53:8080"
+  volumes:
+    - ./xray/config.json:/etc/xray/config.json

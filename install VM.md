@@ -111,7 +111,7 @@ su - opex
 whoami
 ```
 
-#### 更新 /etc/docker/daemon.json
+d#### 更新 /etc/docker/daemon.json
 
 ```
 {
