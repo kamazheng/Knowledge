@@ -24,12 +24,49 @@ https://docs.docker.com/engine/install/rhel/
 
 id kzheng
 sudo chown -R kzheng:support /app/
+sudo chown -R kzheng:support /etc/docker/
 
 ```
 
+- update  /etc/docker/daemon.json
+
 ```
+sudo nano /etc/docker/daemon.json
+```
+
+```
+{
+  "data-root": "/app/docker/lib",
+  "dns-search": [
+    "molex.com",
+    "khc.local"
+  ],
+  "registry-mirrors": [
+    "https://nexus.cdu.molex.com:135"
+  ],
+  "insecure-registries": [
+    "nexus.cdu.molex.com:135"
+  ],
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "256m",
+    "max-file": "4",
+    "compress": "true"
+  }
+}
+
+```
+
+- restart docker service
+
+```
+
+sudo systemctl enable --now docker
+sudo systemctl restart docker
 sudo useradd -m opex && echo "opex:opex1234" | sudo chpasswd
 sudo usermod -aG docker opex
+newgrp docker
+
 ```
 
 ## Rsync data from old server
@@ -47,23 +84,24 @@ dnf download --resolve rsync
 rpm -Uvh *.rpm
 ```
 
-- Dry run
+- Dry run on new server (update to the old server ip)
 ```
-sshpass -p 'Molex@2024' rsync -avhn \
+sudo sshpass -p 'Molex@2024' rsync -avhn \
   --no-o --no-g \
   --chown=kzheng:support \
   -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
-  root@10.221.165.47:/app/docker/data/ \
+  root@10.221.165.49:/app/docker/data/ \
   /app/docker/data/
 ```
 
 - Real run
+
 ```
-sshpass -p 'Molex@2024' rsync -avz --info=progress2 \
+sudo sshpass -p 'Molex@2024' rsync -avz --info=progress2 \
   --no-o --no-g \
   --chown=kzheng:support \
   -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
-  root@10.221.165.47:/app/docker/data/ \
+  root@10.221.165.49:/app/docker/data/ \
   /app/docker/data/ \
   | tee -a /var/log/rsync_pull_$(date +%F).log
 
@@ -72,6 +110,7 @@ sshpass -p 'Molex@2024' rsync -avz --info=progress2 \
 
 ## DNS/IP 牵移
 
+- 确保docker compose up -d运行没有问题
 - 旧服务器：halt
 - 新服务器增加旧服器的IP：
 
@@ -84,6 +123,7 @@ sshpass -p 'Molex@2024' rsync -avz --info=progress2 \
 ```
 sudo ip addr add 10.221.165.47/23 dev ens192
 ```
+
 - 永久增加地址：
 
 ```
@@ -155,3 +195,17 @@ ssh-keyscan -H -t rsa,ecdsa,ed25519 app.cdu.molex.com >> ~/.ssh/known_hosts
 ```
 docker login kochsource.io:5005/mlxnetdev/chengdu --username=kamazheng --password=dwiXryqN1hz9KE7CGvXV
 ```
+
+
+## Yum install setting
+
+```
+
+sudo curl -o /etc/yum.repos.d/centos-9-x86_64.repo http://jenkins.aip.molex.com/files/molex-aip-bash/redhat9/repo/centos-9-x86_64.repo
+
+sudo yum install -y --disablerepo=* --enablerepo=aip-9-baseos --enablerepo=aip-9-appstream --enablerepo=aip-9-highavailability  clean all
+sudo yum install -y --disablerepo=* --enablerepo=aip-9-baseos --enablerepo=aip-9-appstream --enablerepo=aip-9-highavailability  makecache
+
+sudo yum install -y --disablerepo=* --enablerepo=aip-9-baseos --enablerepo=aip-9-appstream --enablerepo=aip-9-highavailability {you package}
+ 
+ ```
