@@ -11,6 +11,10 @@
 #   - 支持密码登录（sshpass）
 #   - 本地使用 yq 合并 YAML
 # ===================================================================
+# 在脚本开头加载 .zshrc
+if [ -f "$HOME/.zshrc" ]; then
+  source "$HOME/.zshrc"
+fi
 
 set -euo pipefail
 
@@ -30,20 +34,20 @@ trap 'rm -rf "$TEMP_DIR"' EXIT
 echo "=> 创建临时工作目录: $TEMP_DIR"
 
 # ============ 应用服务器配置（测试 & 生产）============
-TEST_APP_USER="opex"
+TEST_APP_USER="${DOCKER_USER}"
 TEST_APP_HOST="MLXCDUVLQAPP01.molex.com"
-TEST_APP_PASS="opex1234"
+TEST_APP_PASS=""${DOCKER_PASS}""
 TEST_DOCKER_DIR="/app/docker/data"  # docker-compose.yml 所在目录
 
-PROD_APP_USER="opex"
+PROD_APP_USER="${DOCKER_USER}"
 PROD_APP_HOST="MLXCDUVLPAPP01.molex.com"
-PROD_APP_PASS="opex1234"
+PROD_APP_PASS=""${DOCKER_PASS}""
 PROD_DOCKER_DIR="/app/docker/data"
 
 # ============ Nginx 服务器配置（统一管理测试+生产）============
-NGINX_USER="opex"
+NGINX_USER="${DOCKER_USER}"
 NGINX_HOST="MLXCDUVLPAPP02.molex.com"
-NGINX_PASS="opex1234"
+NGINX_PASS=""${DOCKER_PASS}""
 NGINX_CONF_DIR="/app/docker/data/nginx/conf.d/"
 NGINX_CONTAINER_NAME_HINT="nginx"  # 容器名关键词，如 nginx, proxy
 
