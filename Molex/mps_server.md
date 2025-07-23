@@ -12,6 +12,8 @@
 | Prod | DB-Postgre SQL | Linux | MPS-数据库 | MLXCDUVLPSC05 | Linux Redhat 9.x | DMZ | 10.221.164.205 | 8核-内存24G-硬盘500G |
 | Prod | APP | Linux | MPS-负载均衡 | MLXCDUVLPSC07 | Linux Redhat 9.x | DMZ | 10.221.164.207 (域名：mpsapp.cdu.molex.com/mps.cdu.molex.com) | 4核-内存4G-硬盘50G |
 
+Mpsapp.cdu.molex.com
+Mps.cdu.molex.com
 
 ## QA
 

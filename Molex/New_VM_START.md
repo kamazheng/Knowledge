@@ -24,7 +24,7 @@ https://docs.docker.com/engine/install/rhel/
 
 id kzheng
 sudo chown -R kzheng:support /app/
-sudo chown -R kzheng:support /etc/docker/
+sudo chmod -R 777 /app
 
 ```
 
@@ -60,12 +60,13 @@ sudo nano /etc/docker/daemon.json
 - restart docker service
 
 ```
-
-sudo systemctl enable --now docker
-sudo systemctl restart docker
 sudo useradd -m opex && echo "opex:opex1234" | sudo chpasswd
 sudo usermod -aG docker opex
+
+sudo systemctl enable --now docker
+sudo usermod -aG docker kzheng
 newgrp docker
+sudo systemctl restart docker
 
 ```
 
@@ -165,8 +166,8 @@ rpm -ivh *.rpm
 //update the config file instance to current server
 
 sudo chmod 666 /var/run/docker.sock
-systemctl enable telegraf.service
-systemctl start telegraf.service
+sudo systemctl enable telegraf.service
+sudo systemctl start telegraf.service
 
 sudo journalctl -u telegraf.service -n 20
 
@@ -203,8 +204,10 @@ docker login kochsource.io:5005/mlxnetdev/chengdu --username=kamazheng --passwor
 
 sudo curl -o /etc/yum.repos.d/centos-9-x86_64.repo http://jenkins.aip.molex.com/files/molex-aip-bash/redhat9/repo/centos-9-x86_64.repo
 
-sudo yum install -y --disablerepo=* --enablerepo=aip-9-baseos --enablerepo=aip-9-appstream --enablerepo=aip-9-highavailability  clean all
-sudo yum install -y --disablerepo=* --enablerepo=aip-9-baseos --enablerepo=aip-9-appstream --enablerepo=aip-9-highavailability  makecache
+sudo yum --disablerepo=* --enablerepo=aip-9-baseos --enablerepo=aip-9-appstream --enablerepo=aip-9-highavailability clean all
+
+sudo yum --disablerepo=* --enablerepo=aip-9-baseos --enablerepo=aip-9-appstream --enablerepo=aip-9-highavailability makecache
+
 
 sudo yum install -y --disablerepo=* --enablerepo=aip-9-baseos --enablerepo=aip-9-appstream --enablerepo=aip-9-highavailability {you package}
  

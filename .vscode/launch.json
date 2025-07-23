@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "bashdb",
+            "request": "launch",
+            "name": "Debug Bash Script",
+            "program": "${file}",
+            "cwd": "${workspaceFolder}",
+            "terminalKind": "integrated" // 注意：不是 consoleKind！
+        }
+    ]
+}

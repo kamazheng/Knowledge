@@ -87,7 +87,9 @@ approvalcenter.cduapi.molex.com
 > all point to:
 => 10.221.165.47
 
-<br/>
 
-<br/>
+> 2025-07-22 https://kochprod.service-now.com/compass?id=ticket&table=sc_req_item&sys_id=846829c79372e6509a2c78fdfaba1053&view=sp
+intool.cdu.molex.com, 
+intool.cduqa.molex.com
+=> 10.221.165.47
 
