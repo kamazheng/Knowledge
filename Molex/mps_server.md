@@ -15,6 +15,8 @@
 Mpsapp.cdu.molex.com
 Mps.cdu.molex.com
 
+sudo useradd -m -G wheel -p $(openssl passwd -1 mpsVendor2025) mpsvendor
+
 ## QA
 
 | Environment | OS       | Application/Service             | Hostname                     | OS Image                            | Network Zone | IP Address     | Username | Password         |
